@@ -1,7 +1,38 @@
+import os
+import numpy as np
 
 def cifrar():
-    print("oi")
-    
+    print("\n=== CIFRAR ===")
+
+    msg = obter_msg_bytes()
+    tamanho_bloco = 16
+    chave = input("Informe a chave: ").strip()
+
+    # aqui fazer logica para colocar o padding no final da msg
+
+    for i in range(0, len(msg), tamanho_bloco):
+        bloco = msg[i: i + tamanho_bloco]
+
+
+
+def obter_msg_bytes():
+    while True:
+        print("1 - Texto")
+        print("2 - Arquivo")
+        tipo_mensagem = input("Informe o que deseja cifrar: ").strip()
+        if tipo_mensagem == '1':
+            msg_text = input("Digite a sua mensagem: ")
+            return msg_text.encode('utf-8')
+        elif tipo_mensagem == '2':
+            caminho_file = input("Informe o caminho completo para o arquivo: ")
+            if not os.path.exists(caminho_file):
+                print(f"\nErro: O arquivo '{caminho_file}' não foi encontrado. Tente novamente.\n")
+            else:
+                with open(caminho_file, 'rb') as file:
+                    conteudo_bytes = file.read()
+                    return conteudo_bytes
+        else:
+            print("\n=== Opção inválida ===\n")
 
 def decifrar() :
     print("tchau")
@@ -34,8 +65,6 @@ while True:
 # 4 - loop
 # 4.1 - cifrar bloco
 # 4.2 - persistir
-
-
 
 
 
