@@ -1,20 +1,22 @@
 import os
 import numpy as np
-from expansaoChave import expansao_da_chave
+
+from Bloco import *
+from Chave import *
 
 def cifrar():
     print("\n=== CIFRAR ===")
 
     msg = obter_msg_bytes()
-    tamanho_bloco = 16
+
     chave = input("Informe a chave: ").strip()
 
-    round_keys = expansao_da_chave(chave)
+    round_keys = expandir_chave(chave)
 
-    # aqui fazer logica para colocar o padding no final da msg
+    msg = aplicar_padding_pkcs7(msg)
+    blocos = dividir_em_blocos(msg)
 
-    for i in range(0, len(msg), tamanho_bloco):
-        bloco = msg[i: i + tamanho_bloco]
+
 
 def obter_msg_bytes():
     while True:

@@ -1,7 +1,7 @@
 import numpy as np
-from constants import *
+from Constants import *
 
-def expansao_da_chave(chave):
+def expandir_chave(chave):
     # usar aqui pra quando a chave for um texto para teste
     lista_de_caracteres = [ord(c) for c in list(chave)]
 
