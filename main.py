@@ -1,21 +1,18 @@
 import os
-import numpy as np
 
-from Bloco import *
-from Chave import *
+from Algoritmo import *
 
-def cifrar():
+def cifrarMsg():
     print("\n=== CIFRAR ===")
 
-    msg = obter_msg_bytes()
+    #msg = obter_msg_bytes()
+    #chave = input("Informe a chave: ").strip()
+    msg = b'DESENVOLVIMENTO!'
+    chave = 'ABCDEFGHIJKLMNOP'
 
-    chave = input("Informe a chave: ").strip()
+    cifrar(msg, chave)
 
-    round_keys = expandir_chave(chave)
-
-    msg = aplicar_padding_pkcs7(msg)
-    blocos = dividir_em_blocos(msg)
-
+    aa = 1
 
 
 def obter_msg_bytes():
@@ -37,7 +34,7 @@ def obter_msg_bytes():
         else:
             print("\n=== Opção inválida ===\n")
 
-def decifrar() :
+def decifrarMsg() :
     print("tchau")
 
 
@@ -47,12 +44,13 @@ while True:
     print("2 - Decifrar mensagem")
     print("0 - Sair")
     
-    opcao = input("Escolha uma opção: ").strip()
+    #opcao = input("Escolha uma opção: ").strip()
+    opcao = "c"
 
     if opcao == '1' or opcao.lower() == 'c':
-        cifrar()
+        cifrarMsg()
     elif opcao == '2' or opcao.lower() == 'd':
-        decifrar()
+        decifrarMsg()
     elif opcao == '0':
         print("Saindo do programa...")
         break
