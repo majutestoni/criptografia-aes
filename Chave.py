@@ -1,9 +1,9 @@
 import numpy as np
 from Constants import *
 
-def expandir_chave(chave):
+def expandir_chave(chave: bytes):
     # usar aqui pra quando a chave for um texto para teste
-    lista_de_caracteres = [ord(c) for c in list(chave)]
+    # lista_de_caracteres = [ord(c) for c in list(chave)]
 
     # usar aqui para chave conforme pede no arquivo do trabalho, ex: 20,1,94,33,199,0,48,9,31,94,112,40,59,30,100,248
     #lista_de_caracteres = chave.split(',') # criar lista dos char
@@ -12,7 +12,7 @@ def expandir_chave(chave):
     #    num_int = int(num_str)
     #    lista_de_caracteres_hex.append(f'0x{num_int:02X}')
 
-    matriz_estado_original = np.array(lista_de_caracteres).reshape((4, 4), order='F') # cria a matriz estado
+    matriz_estado_original = np.array(list(chave)).reshape((4, 4), order='F') # cria a matriz estado
 
     print(matriz_estado_original)
 
