@@ -1,4 +1,5 @@
 import os
+import base64
 
 from Algoritmo import *
 
@@ -24,7 +25,10 @@ def obter_msg_bytes():
             
             msg = b'DESENVOLVIMENTO!'
             chave = bytes([20, 1, 94, 33, 199, 0, 48, 9, 31, 94, 112, 40, 59, 30, 100, 248])
-            return cifrar(msg, chave)
+            msg_cifrada = cifrar(msg, chave)
+            msg_str = base64.b64encode(msg_cifrada).decode('utf-8')
+            print("Mensagem cifrada: " + msg_str)
+            return msg_str
         elif tipo_mensagem == '2':
             caminho_file = input("Informe o caminho completo para o arquivo: ")
             if not os.path.exists(caminho_file):
