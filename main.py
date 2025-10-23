@@ -1,16 +1,7 @@
 import os
 import base64
 
-from Algoritmo import *
-
-def cifrarMsg():
-    print("\n=== CIFRAR ===")
-    msg = b'DESENVOLVIMENTO!'
-    chave = 'ABCDEFGHIJKLMNOP'
-    cifrar(msg, chave)
-
-    #msg = obter_msg_bytes()
-    #chave = input("Informe a chave: ").strip()
+from Cifrar import Cifrar
 
 def obter_msg_bytes():
     while True:
@@ -18,6 +9,7 @@ def obter_msg_bytes():
         print("2 - Arquivo")
         tipo_mensagem = input("Informe o que deseja cifrar: ").strip()
         if tipo_mensagem == '1':
+            c = Cifrar()
             # msg_text = input("Digite a sua mensagem: ")
             # chave_text = input("Digite a chave: ")
             
@@ -25,7 +17,7 @@ def obter_msg_bytes():
             
             msg = b'DESENVOLVIMENTO!'
             chave = bytes([20, 1, 94, 33, 199, 0, 48, 9, 31, 94, 112, 40, 59, 30, 100, 248])
-            msg_cifrada = cifrar(msg, chave)
+            msg_cifrada = c.cifrar(msg, chave)
             msg_str = base64.b64encode(msg_cifrada).decode('utf-8')
             print("Mensagem cifrada: " + msg_str)
             return msg_str
