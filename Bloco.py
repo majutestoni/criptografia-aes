@@ -11,3 +11,7 @@ def dividir_em_blocos(msg):
         block = list(msg[i:i + tamanho_bloco])
         blocos.append(block)
     return blocos
+
+def remover_padding_pkcs7(data: bytes) -> bytes:
+    padding_len = data[-1]
+    return data[:-padding_len]
