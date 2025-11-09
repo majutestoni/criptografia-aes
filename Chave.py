@@ -1,20 +1,15 @@
 import numpy as np
 from Constants import *
 
-def expandir_chave(chave: bytes):
-    # usar aqui pra quando a chave for um texto para teste
-    # lista_de_caracteres = [ord(c) for c in list(chave)]
+def imprimir_matriz_hex(matriz):
+    print("------------------------")
+    for linha in matriz:
+        print(" ".join(f"0x{byte:02X}" for byte in linha))
+    print("------------------------")
 
-    # usar aqui para chave conforme pede no arquivo do trabalho, ex: 20,1,94,33,199,0,48,9,31,94,112,40,59,30,100,248
-    #lista_de_caracteres = chave.split(',') # criar lista dos char
-    #lista_de_caracteres_hex = [] # transforma para hex
-    #for num_str in lista_de_caracteres:
-    #    num_int = int(num_str)
-    #    lista_de_caracteres_hex.append(f'0x{num_int:02X}')
+def expandir_chave(chave: bytes):
 
     matriz_estado_original = np.array(list(chave)).reshape((4, 4), order='F') # cria a matriz estado
-
-    print(matriz_estado_original)
 
     lista_round_keys = [] # criando lista para guardar as round keys
     lista_round_keys.append(matriz_estado_original)
@@ -64,6 +59,9 @@ def expandir_chave(chave: bytes):
             round_key_atual_loop[3, l + 1] = palavra_round_key_anterior[3] ^ palavra_anterior[3]
 
         lista_round_keys.append(round_key_atual_loop)
+
+        #print(f"**** RoundKey={round_key_atual_pos} ****")
+        #imprimir_matriz_hex(round_key_atual_loop)
 
         # no final do loop, atualiza o valor da roundkey
         round_key_atual_pos = round_key_atual_pos + 1

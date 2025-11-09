@@ -1,6 +1,5 @@
-
 import numpy as np
-from Constants import INV_S_BOX, MATRIZ_MULTIPLICACAO, S_BOX, TABLE_E, TABLE_L
+from Constants import INV_S_BOX, S_BOX, TABLE_E, TABLE_L
 
 class Algoritmo:
 

@@ -3,7 +3,6 @@ from Bloco import dividir_em_blocos, remover_padding_pkcs7
 from Chave import expandir_chave
 import numpy as np
 
-
 class Decifrar(Algoritmo):
 
     def decifrar(self, msg, chave: bytes):
