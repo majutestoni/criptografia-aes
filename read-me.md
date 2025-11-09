@@ -1,4 +1,4 @@
 Equipe:
 
-Jonathan Ilchemin Ribeiro
+Jonathan Ilchemin Ribeiro e
 Maria Júlia Testoni
